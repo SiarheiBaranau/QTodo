@@ -22,7 +22,7 @@
             android:paddingStart="@dimen/small_size"
             android:paddingEnd="@dimen/small_size"
             android:paddingBottom="@dimen/small_size"
-            android:paddingTop="@dimen/small_size"
+            android:paddingTop="@dimen/xxsmall_size"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -46,11 +46,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small_size"
-                android:layout_marginTop="@dimen/large_size"
+                android:contentDescription="@string/description_image_priority"
                 android:src="@drawable/high_priority_circle"
+                app:layout_constraintStart_toEndOf="@id/tv_task_title"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_task_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/description_image_priority" />
+                app:layout_constraintTop_toTopOf="@+id/tv_task_title" />
 
             <TextView
                 android:id="@+id/tv_task_description"
@@ -60,7 +61,6 @@
                 android:textSize="14sp"
                 android:maxLines="5"
                 android:ellipsize="end"
-                android:padding="@dimen/xxsmall_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_task_title"

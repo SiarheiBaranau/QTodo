@@ -1,8 +1,9 @@
 package com.tts.qtodo.ui.fragments
 
+import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -64,6 +65,9 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
                     } else {
                         viewModel.insertTask(task)
                     }
+                    val imm =
+                        (activity as MainActivity).getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(view.windowToken, 0)
                     findNavController().navigateUp()
                 }
             }
