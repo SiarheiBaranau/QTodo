@@ -1,14 +1,13 @@
 package com.tts.qtodo.ui.fragments
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.tts.qtodo.R
 import com.tts.qtodo.adapters.TaskAdapter
 import com.tts.qtodo.ui.MainActivity
@@ -21,7 +20,7 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
     private lateinit var taskAdapter: TaskAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setupRecyclerview()
+        setupRecyclerview(view)
         viewModel = (activity as MainActivity).viewModel
 
         viewModel.tasks.observe(viewLifecycleOwner, {
@@ -39,12 +38,41 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
         }
     }
 
-    private fun setupRecyclerview() {
+    private fun setupRecyclerview(view: View) {
         taskAdapter = TaskAdapter()
         rv_tasks.apply {
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = LinearLayoutManager(activity)
             adapter = taskAdapter
             setHasFixedSize(true)
+        }
+
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or ItemTouchHelper.DOWN,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return true
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val task = taskAdapter.differ.currentList[position]
+                viewModel.deleteTask(task)
+                Snackbar.make(view, "Successfully deleted task", Snackbar.LENGTH_SHORT).apply {
+                    setAction("Undo") {
+                        viewModel.insertTask(task)
+                    }
+                    show()
+                }
+            }
+        }
+
+        ItemTouchHelper(itemTouchHelperCallback).apply {
+            attachToRecyclerView(rv_tasks)
         }
     }
 
