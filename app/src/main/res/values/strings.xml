@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">QTodo</string>
+    <string name="description_add_task_button">Adding task</string>
+    <string name="description_image_priority">Priority</string>
+    <string name="hint_edit_title">Title</string>
+    <string name="hint_edit_description">Description</string>
+    <string name="btn_text_save">Save</string>
+    <string name="btn_text_delete">Delete</string>
+    <string name="main_menu_delete_all_tasks">Delete all tasks</string>
+    <string name="btn_text_create_task">Create</string>
+
+    <string-array name="task_priority">
+        <item>Low</item>
+        <item>Middle</item>
+        <item>High</item>
+    </string-array>
 </resources>
