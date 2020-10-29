@@ -9,7 +9,11 @@
         android:label="TaskListFragment" >
         <action
             android:id="@+id/action_taskListFragment_to_taskFragment"
-            app:destination="@id/taskFragment" />
+            app:destination="@id/taskFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/taskFragment"
@@ -17,7 +21,11 @@
         android:label="TaskFragment" >
         <action
             android:id="@+id/action_taskFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            app:destination="@id/taskListFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
         <argument
             android:name="task"
             app:argType="com.tts.qtodo.models.Task"
