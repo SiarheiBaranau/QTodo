@@ -9,6 +9,12 @@
     <string name="main_menu_delete_all_tasks">Delete all tasks</string>
     <string name="btn_text_create_task">Create</string>
 
+    <string name="snackbar_undo_action">Undo</string>
+    <string name="snackbar_deleted_message">Successfully deleted task</string>
+
+    <string name="error_edit_text_title">Title is not valid!</string>
+    <string name="error_edit_text_description">Description is not valid!</string>
+
     <string-array name="task_priority">
         <item>Low</item>
         <item>Middle</item>

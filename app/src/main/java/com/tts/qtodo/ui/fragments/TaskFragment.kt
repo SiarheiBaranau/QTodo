@@ -54,10 +54,10 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
 
             when {
                 title.isEmpty() -> {
-                    et_task_title.error = "Title is not valid!"
+                    et_task_title.error = getString(R.string.error_edit_text_title)
                 }
                 description.isEmpty() -> {
-                    et_task_description.error = "Description is not valid!"
+                    et_task_description.error = getString(R.string.error_edit_text_description)
                 }
                 else -> {
                     if (currentTask != null) {
@@ -73,5 +73,4 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
             }
         }
     }
-
 }

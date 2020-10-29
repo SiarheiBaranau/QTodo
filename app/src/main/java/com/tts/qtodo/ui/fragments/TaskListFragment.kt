@@ -62,8 +62,8 @@ class TaskListFragment : Fragment(R.layout.fragment_task_list) {
                 val position = viewHolder.adapterPosition
                 val task = taskAdapter.differ.currentList[position]
                 viewModel.deleteTask(task)
-                Snackbar.make(view, "Successfully deleted task", Snackbar.LENGTH_SHORT).apply {
-                    setAction("Undo") {
+                Snackbar.make(view, getString(R.string.snackbar_deleted_message), Snackbar.LENGTH_SHORT).apply {
+                    setAction(getString(R.string.snackbar_undo_action)) {
                         viewModel.insertTask(task)
                     }
                     show()
