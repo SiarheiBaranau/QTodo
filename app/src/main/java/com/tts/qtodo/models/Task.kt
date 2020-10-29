@@ -11,5 +11,5 @@ data class Task(
     var title: String,
     var description: String,
     var priority: Priority = Priority.MIDDLE,
-    var checked: Boolean = false
+    var isDone: Boolean = false
 ) : Serializable

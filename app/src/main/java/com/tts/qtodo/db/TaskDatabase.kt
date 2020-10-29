@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.tts.qtodo.models.Task
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class TaskDatabase : RoomDatabase() {
 
@@ -27,7 +27,7 @@ abstract class TaskDatabase : RoomDatabase() {
                 context.applicationContext,
                 TaskDatabase::class.java,
                 "task_db.db"
-            ).build()
+            ).fallbackToDestructiveMigration().build()
     }
 
 }
