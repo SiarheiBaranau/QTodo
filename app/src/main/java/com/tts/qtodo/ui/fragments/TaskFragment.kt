@@ -31,6 +31,7 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
                 Priority.MIDDLE -> sp_priority.setSelection(1)
                 Priority.LOW -> sp_priority.setSelection(0)
             }
+            cb_isDone.isChecked = it.isDone
             et_task_description.setText(it.description)
             btn_delete_task.visibility = View.VISIBLE
         }
@@ -48,6 +49,7 @@ class TaskFragment : Fragment(R.layout.fragment_task) {
             val priority =
                 Priority.valueOf(sp_priority.selectedItem.toString().toUpperCase(Locale.ROOT))
             val task = Task(null, title, description, priority)
+            task.isDone = cb_isDone.isChecked
             currentTask?.let {
                 task.id = it.id
             }

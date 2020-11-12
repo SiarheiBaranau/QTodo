@@ -15,10 +15,13 @@
         android:id="@+id/fab_create_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_size"
         android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/medium_size"
         android:contentDescription="@string/description_add_task_button"
         android:text="@string/btn_text_create_task"
-        app:icon="@drawable/ic_add" />
+        android:textColor="@color/purple_700"
+        app:backgroundTint="@android:color/white"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@color/purple_700" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

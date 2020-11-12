@@ -6,4 +6,6 @@
     <dimen name="small_size">8dp</dimen>
     <dimen name="medium_size">16dp</dimen>
     <dimen name="large_size">32dp</dimen>
+
+    <dimen name="title_priority_text_size">16sp</dimen>
 </resources>

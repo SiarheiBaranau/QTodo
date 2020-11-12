@@ -14,6 +14,9 @@
 
     <string name="error_edit_text_title">Title is not valid!</string>
     <string name="error_edit_text_description">Description is not valid!</string>
+    <string name="title_priority">Priority:</string>
+    <string name="title_done">Done</string>
+    <string name="checkbox_text_done">Done</string>
 
     <string-array name="task_priority">
         <item>Low</item>

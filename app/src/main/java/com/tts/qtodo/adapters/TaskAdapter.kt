@@ -40,10 +40,14 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         holder.itemView.apply {
             tv_task_title.text = task.title
             tv_task_description.text = task.description
-            when(task.priority) {
-                Priority.HIGH -> iv_task_priority.setImageResource(R.drawable.high_priority_circle)
-                Priority.MIDDLE -> iv_task_priority.setImageResource(R.drawable.middle_priority_circle)
-                Priority.LOW -> iv_task_priority.setImageResource(R.drawable.low_priority_circle)
+            if (task.isDone) {
+                iv_task_priority.setImageResource(R.drawable.ic_done)
+            } else {
+                when (task.priority) {
+                    Priority.HIGH -> iv_task_priority.setImageResource(R.drawable.high_priority_circle)
+                    Priority.MIDDLE -> iv_task_priority.setImageResource(R.drawable.middle_priority_circle)
+                    Priority.LOW -> iv_task_priority.setImageResource(R.drawable.low_priority_circle)
+                }
             }
             setOnClickListener {
                 onItemClickListener?.let { it(task) }

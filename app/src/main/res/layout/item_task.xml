@@ -34,12 +34,12 @@
                 android:layout_marginTop="@dimen/small_size"
                 android:layout_marginEnd="@dimen/xxsmall_size"
                 android:ellipsize="end"
-                android:maxLength="20"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@+id/iv_task_priority"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_task_description"
                 tools:text="Title" />
 
             <ImageView
